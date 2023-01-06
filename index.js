@@ -1,10 +1,13 @@
 import express from "express";
+import { userRouter } from "./users/users.js";
 
 const app = express();
 const port = 8000;
 
+app.use("/users", userRouter);
+
 app.get("/hello", (req, res) => {
-  res.send("Hello");
+  res.status(201).json({ success: true });
 });
 
 app.listen(port, () => {
